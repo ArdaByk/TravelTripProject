@@ -1,4 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using TravelTripProject.Models.Siniflar;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<Context>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
