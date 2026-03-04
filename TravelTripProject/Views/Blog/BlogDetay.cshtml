@@ -1,5 +1,5 @@
-﻿@using TravelTripProject.Models.Siniflar
-@model List<Blog>
+﻿
+@model TravelTripProject.Models.Siniflar.BlogYorum
 @{
 	Layout = "~/Views/Shared/_testLayout.cshtml";
 }
@@ -40,7 +40,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="container">
 			<div class="col-md-8 single-main">
 				<div class="single-grid">
-					@foreach(var x in Model)
+					@foreach(var x in Model.Deger1)
 					{
 						<img src="@x.BlogImage" alt="" style="margin:20px"/>
 						<h2>@x.Baslik</h2>
@@ -50,24 +50,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					}
 					
 				</div>
-				<ul class="comment-list">
-					<li>
-						<img src="~/web2/images/avatar.png" class="img-responsive" alt="">
-						<div class="desc">
-							<p>Mehmet Yücedağ: yorum yazacak...</p>
-						</div>
-						<div class="clearfix"></div>
-					</li>
-				</ul>
-				<ul class="comment-list">
-					<li>
-						<img src="~/web2/images/avatar.png" class="img-responsive" alt="">
-						<div class="desc">
-							<p>Mehmet Yücedağ: yorum yazacak...</p>
-						</div>
-						<div class="clearfix"></div>
-					</li>
-				</ul>
+				@foreach(var y in Model.Deger2)
+				{
+					<ul class="comment-list">
+						<li>
+							<img src="~/web2/images/avatar.png" class="img-responsive" alt="">
+							<div class="desc">
+								<p>@y.KullaniciAdi: @y.Yorum</p>
+							</div>
+							<div class="clearfix"></div>
+						</li>
+					</ul>
+				}
+				
 				<div class="content-form">
 					<h3>Bir yorum yapın</h3>
 					<form>
