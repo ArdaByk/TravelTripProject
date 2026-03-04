@@ -12,8 +12,8 @@ using TravelTripProject.Models.Siniflar;
 namespace TravelTripProject.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20260302163804_fmigration")]
-    partial class fmigration
+    [Migration("20260304055901_fmig")]
+    partial class fmig
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

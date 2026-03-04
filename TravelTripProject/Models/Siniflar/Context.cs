@@ -9,12 +9,20 @@ public class Context : DbContext
 {
     public Context()
     {
-        
     }
+
+    public Context(DbContextOptions<Context> options) : base(options)
+    {
+    }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("Server=DESKTOP-0TQ8MRR\\SQLEXPRESS;Database=TravelDb;Trusted_Connection=True;TrustServerCertificate=True");
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseSqlServer("Server=DESKTOP-J58U3SF;Database=TravelDb;Trusted_Connection=True;TrustServerCertificate=True");
+        }
     }
+
     public DbSet<Admin> Admins { get; set; }
     public DbSet<Adres> Adres { get; set; }
     public DbSet<Blog> Blogs { get; set; }

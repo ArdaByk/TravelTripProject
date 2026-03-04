@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace TravelTripProject.Migrations
 {
     /// <inheritdoc />
-    public partial class fmigration : Migration
+    public partial class fmig : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
