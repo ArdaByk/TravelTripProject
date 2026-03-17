@@ -1,4 +1,8 @@
-﻿<!--
+﻿@using TravelTripProject.Models.Siniflar;
+@model List<Blog>
+
+
+<!--
 Author: W3layouts
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -40,7 +44,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <img src="~/web/images/glass.png" alt="">
 							</div>
 							<div class="grid1-desc">
-								<p>Restaurants</p>
+								<p>Restoranlar</p>
 							</div>
 							<div class="clear"></div>
 					</div>
@@ -49,7 +53,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <img src="~/web/images/flight.png" alt="">
 							</div>
 							<div class="grid1-desc">
-								<p>Flights</p>
+								<p>Uçuşlar</p>
 							</div>
 							<div class="clear"></div>
 					</div>
@@ -58,7 +62,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <img src="~/web/images/group.png" alt="">
 			</div>
 			<div class="grid1-desc">
-				<p>Things to do</p>
+				<p>Yapılacak Şeyler</p>
 			</div>
 			<div class="clear"></div>
 	</div>
@@ -67,7 +71,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <img src="~/web/images/key.png" alt="">
 			</div>
 			<div class="grid1-desc">
-				<p>Vacation Rents</p>
+				<p>Araba Kiralama</p>
 			</div>
 			<div class="clear"></div>
 	</div>
@@ -75,12 +79,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </div>
 <div class="header_bottom_right_images">
 
- <div class="slider">
+ <div class="slider" style="width: 650px; height: 365px;">
 	    <ul class="rslides" id="slider1">
-                                <li><img src="~/web/images/img1.jpg" alt=""></li>
-                                <li><img src="~/web/images/img2.jpg" alt=""></li>
+                                @foreach(var x in Model)
+                                    {
+                                    <li><img src="@x.BlogImage" alt=""></li>
+                                    }
+                                   
+                               @*  <li><img src="~/web/images/img2.jpg" alt=""></li>
                                 <li><img src="~/web/images/img3.jpg" alt=""></li>
-                                <li><img src="~/web/images/img4.jpg" alt=""></li>
+                                <li><img src="~/web/images/img4.jpg" alt=""></li> *@
 	    </ul>
     </div>
 	       </div>                                        
@@ -94,28 +102,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       	<div class="wrap">
       		<div class="wrapper">
       	<div class="con-top">
-      		<h3>Welcome to our Travel Company!</h3>
+      		<h3>Tatil Seyahat Bloğuma Hoşgeldiniz!</h3>
       		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facil</p>
       	</div>
+          @Html.ActionLink("Partial1", "Default");
       
       		<div class="grids">
       	<div class="box1">
-                                <div class="padding">
-                                    <h4>This Week's Top 10</h4>
-                                    <ul class="list list-pad">
-                                        <li class="list-bg"><span>1.</span><a href="#">formas humanitatis pe</a></li>
-                                        <li class="list-bg1"><span>2.</span><a href="#">congue nihil imperdiet</a></li>
-                                        <li class="list-bg"><span>3.</span><a href="#">Aadipisicing elit sed do</a></li>
-                                        <li class="list-bg1"><span>4.</span><a href="#">luptatum zzril  </a></li>
-                                        <li class="list-bg"><span>5.</span><a href="#">Claritas est etiam</a></li>
-                                        <li class="list-bg1"><span>6.</span><a href="#">claritatem insitam;</a></li>
-                                        <li class="list-bg"><span>7.</span><a href="#">velit esse molestie consequa</a></li>
-                                        <li class="list-bg1"><span>8.</span><a href="#">nostrud exerci tation ulla</a></li>
-                                        <li class="list-bg"><span>9.</span><a href="#">demonstraverunt lectores</a></li>
-                                        <li class="list-bg1"><span>10.</span><a href="#">dolore te feu</a></li>
-                                    </ul>
-                                    <a href="#" class="link1">See all hotels</a>
-                                </div>
+						@Html.ActionLink("Partial3", "Default");
                         		<div class="padding1">
                                     <h4>Our Best Places</h4>
                                     <div class="box-left">
