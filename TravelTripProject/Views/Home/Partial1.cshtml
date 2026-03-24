@@ -1,8 +1,8 @@
 ﻿@using TravelTripProject.Models.Siniflar;
 @model List<Blog>
 
-@*<div class="con-bot">*@
-@* 	@foreach(var x in Model)
+<div class="con-bot">
+ 	@foreach(var x in Model)
 	{
 		<div class="left">
 			<div class="bot-left">
@@ -11,13 +11,17 @@
 			<div class="left-text">
 				<h4>@x.Baslik</h4>
 				<span class="doller">@x.Tarih.ToString("dd.MM.yyyy")</span>
-				<p>@x.Aciklama.Substring(0, 100)</p>
+				<p>
+    @(x.Aciklama.Length > 100 
+        ? x.Aciklama.Substring(0, 100) 
+        : x.Aciklama)
+</p>
 				<p><a href="/Blog/BlogDetay/@x.ID"><span class="read">Devamını Okuyun >></span></a></p>
 			</div>
 		</div>
 	}
-	@Html.ActionLink("Partial2", "Default");
+	<partial name ="Partial2" />
 	<div class="clear"></div>
-</div> *@
+</div>
 
 <p>burası partial1</p>
