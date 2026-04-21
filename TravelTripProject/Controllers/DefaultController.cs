@@ -17,22 +17,22 @@ public class DefaultController : Controller
         return View();
     }
 
-    public PartialViewResult Partial1()
-    {
-        var degerler = c.Blogs.OrderByDescending(x => x.ID).Take(2).ToList();
-        return PartialView(degerler);
-    }
+    //public PartialViewResult Partial1()
+    //{
+    //    var degerler = c.Blogs.OrderByDescending(x => x.ID).Take(2).ToList();
+    //    return PartialView(degerler);
+    //}
 
-    public PartialViewResult Partial2()
-    {
-        var degerler = c.Blogs.Where(x => x.ID == 1).ToList();
-        return PartialView(degerler);
-    }
+    //public PartialViewResult Partial2()
+    //{
+    //    var degerler = c.Blogs.Where(x => x.ID == 1).ToList();
+    //    return PartialView(degerler);
+    //}
 
-    public PartialViewResult Partial3()
-    {
-        var deger = c.Blogs.ToList();
+    //public PartialViewResult Partial3()
+    //{
+    //    var deger = c.Blogs.ToList();
 
-        return PartialView(deger);
-    }
+    //    return PartialView(deger);
+    //}
 }

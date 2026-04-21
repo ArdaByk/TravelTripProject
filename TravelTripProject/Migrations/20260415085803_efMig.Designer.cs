@@ -12,8 +12,8 @@ using TravelTripProject.Models.Siniflar;
 namespace TravelTripProject.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20260304055901_fmig")]
-    partial class fmig
+    [Migration("20260415085803_efMig")]
+    partial class efMig
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -105,6 +105,9 @@ namespace TravelTripProject.Migrations
 
                     b.Property<DateTime>("Tarih")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("Vize")
+                        .HasColumnType("int");
 
                     b.HasKey("ID");
 

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace TravelTripProject.Migrations
 {
     /// <inheritdoc />
-    public partial class fmig : Migration
+    public partial class efMig : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -52,7 +52,8 @@ namespace TravelTripProject.Migrations
                     Baslik = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Tarih = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Aciklama = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BlogImage = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    BlogImage = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Vize = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

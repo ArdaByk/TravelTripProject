@@ -1,25 +1,25 @@
-﻿@using TravelTripProject.Models.Siniflar;
+﻿@using TravelTripProject.Models.Siniflar
 @model List<Blog>
-
 <div class="con-bot">
- 	@foreach(var x in Model)
-	{
-		<div class="left">
-			<div class="bot-left">
-				<img src="@x.BlogImage" />
-			</div>
-			<div class="left-text">
-				<h4>@x.Baslik</h4>
-				<span class="doller">@x.Tarih.ToString("dd.MM.yyyy")</span>
-				<p>
-    @(x.Aciklama.Length > 100 
-        ? x.Aciklama.Substring(0, 100) 
-        : x.Aciklama)
-</p>
-				<p><a href="/Blog/BlogDetay/@x.ID"><span class="read">Devamını Okuyun >></span></a></p>
-			</div>
-		</div>
-	}
-	<partial name ="Partial2" />
-	<div class="clear"></div>
+    @foreach (var x in Model)
+    {
+        <div class="left">
+            <div class="bot-left">
+                <img src="@x.BlogImage" style="width:350px; height:150px;" alt="" />
+            </div>
+            <div class="left-text">
+                <h4>@x.Baslik</h4>
+                <span class="doller">@x.Tarih.ToString("dd.MM.yyyy")</span>
+                <p>
+                    @(x.Aciklama.Length > 100
+                                    ? x.Aciklama.Substring(0, 100)
+                                    : x.Aciklama)
+                </p>
+                <p><a href="/Blog/BlogDetay/@x.ID"><span class="read">Devamını Oku >></span></a></p>
+            </div>
+        </div>
+    }
+    <partial name="Partial2" model="Model" />
+    <div class="clear"></div>
 </div>
+

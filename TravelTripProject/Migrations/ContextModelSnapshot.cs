@@ -103,6 +103,9 @@ namespace TravelTripProject.Migrations
                     b.Property<DateTime>("Tarih")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Vize")
+                        .HasColumnType("int");
+
                     b.HasKey("ID");
 
                     b.ToTable("Blogs");
