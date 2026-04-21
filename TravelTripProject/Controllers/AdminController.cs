@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TravelTripProject.Models.Siniflar;
 namespace TravelTripProject.Controllers
 {
     public class AdminController : Controller
     {
         Context c = new Context();
+        [Authorize]
         public IActionResult Index()
         {
             var degerler = c.Blogs.ToList();
@@ -44,6 +46,34 @@ namespace TravelTripProject.Controllers
             b.Tarih = p.Tarih;
             c.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult YorumListesi()
+        {
+            var yorumlar = c.Yorumlars.ToList();
+            return View(yorumlar);
+        }
+
+        public ActionResult YorumSil(int id)
+        {
+            var b = c.Yorumlars.Find(id);
+            c.Yorumlars.Remove(b);
+            c.SaveChanges();
+
+            return RedirectToAction("YorumListesi");
+        }
+        public ActionResult YorumGetir(int id)
+        {
+                var b = c.Yorumlars.Find(id);
+                return View("YorumGetir", b);
+        }
+        public ActionResult YorumGuncelle(Yorumlar p)
+        {
+            var b = c.Yorumlars.Find(p.ID);
+            b.KullaniciAdi = p.KullaniciAdi;
+            b.Mail = p.Mail;
+            b.Yorum = p.Yorum;
+            c.SaveChanges();
+            return RedirectToAction("YorumListesi");
         }
     }
 }
