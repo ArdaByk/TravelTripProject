@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TravelTripProject.Models.Siniflar;
 namespace TravelTripProject.Controllers
 {
     public class AdminController : Controller
     {
         Context c = new Context();
-        [Authorize]
+        //[Authorize]
         public IActionResult Index()
         {
             var degerler = c.Blogs.ToList();
@@ -47,9 +48,10 @@ namespace TravelTripProject.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
+
         public ActionResult YorumListesi()
         {
-            var yorumlar = c.Yorumlars.ToList();
+            var yorumlar = c.Yorumlars.Include(b => b.Blog).ToList();
             return View(yorumlar);
         }
 

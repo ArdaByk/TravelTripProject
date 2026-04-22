@@ -19,7 +19,7 @@ public class Context : DbContext
     {
         if (!optionsBuilder.IsConfigured)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-0TQ8MRR\\SQLEXPRESS;Database=TravelDb;Trusted_Connection=True;TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-J58U3SF;Database=TravelDb;Trusted_Connection=True;TrustServerCertificate=True");
         }
     }
 

@@ -21,20 +21,19 @@ public class BlogController : Controller
         //var blogBul = c.Blogs.Where(x => x.ID == id).ToList();
         by.Deger1 = c.Blogs.Where(x => x.ID == id).ToList();
         by.Deger2 = c.Yorumlars.Where(x => x.BlogID == id).ToList();
-
+        ViewBag.deger = id;
         return View(by);
     }
     [HttpGet]
    public PartialViewResult YorumYap(int id)
     {
-        ViewBag.deger = id;
         return PartialView();
     }
     [HttpPost]
-    public PartialViewResult YorumYap(Yorumlar y)
+    public IActionResult YorumYap(Yorumlar y)
     {
         c.Yorumlars.Add(y);
         c.SaveChanges();
-        return PartialView();
+        return RedirectToAction("BlogDetay", new { id = y.BlogID });
     }
 }
