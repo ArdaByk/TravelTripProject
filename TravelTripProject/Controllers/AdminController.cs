@@ -21,8 +21,59 @@ namespace TravelTripProject.Controllers
         [HttpPost]
         public IActionResult YeniBlog(Blog p)
         {
+            // Set a default empty image so we don't get null reference errors later if it expects a string.
+            p.BlogImage = "";
             c.Blogs.Add(p);
             c.SaveChanges();
+            return RedirectToAction("BlogResimEkle", new { id = p.ID });
+        }
+
+        [HttpGet]
+        public IActionResult BlogResimEkle(int id)
+        {
+            ViewBag.BlogId = id;
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> BlogResimEkle(int id, List<IFormFile> images)
+        {
+            var blog = c.Blogs.Find(id);
+            if (images != null && images.Count > 0)
+            {
+                bool isFirst = true;
+                foreach (var img in images)
+                {
+                    if (img.Length > 0)
+                    {
+                        var extension = Path.GetExtension(img.FileName);
+                        var newImageName = Guid.NewGuid() + extension;
+                        // Use wwwroot/images folder
+                        var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+                        if (!Directory.Exists(imagePath))
+                        {
+                            Directory.CreateDirectory(imagePath);
+                        }
+                        
+                        var location = Path.Combine(imagePath, newImageName);
+                        using (var stream = new FileStream(location, FileMode.Create))
+                        {
+                            await img.CopyToAsync(stream);
+                        }
+                        
+                        string url = "/images/" + newImageName;
+
+                        if (isFirst && string.IsNullOrEmpty(blog.BlogImage))
+                        {
+                            blog.BlogImage = url;
+                            isFirst = false;
+                        }
+
+                        c.BlogResims.Add(new BlogResim { BlogID = id, ImageUrl = url });
+                    }
+                }
+                c.SaveChanges();
+            }
             return RedirectToAction("Index");
         }
         public ActionResult BlogSil(int id)

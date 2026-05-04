@@ -21,6 +21,7 @@ public class BlogController : Controller
         //var blogBul = c.Blogs.Where(x => x.ID == id).ToList();
         by.Deger1 = c.Blogs.Where(x => x.ID == id && x.BlogDurum == 1).ToList();
         by.Deger2 = c.Yorumlars.Where(x => x.BlogID == id && x.Yayinlandi == true).ToList();
+        by.Deger4 = c.BlogResims.Where(x => x.BlogID == id).ToList();
         ViewBag.deger = id;
         return View(by);
     }

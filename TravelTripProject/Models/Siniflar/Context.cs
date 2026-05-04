@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
@@ -29,4 +29,5 @@ public class Context : DbContext
     public DbSet<Hakkimizda> Hakkimizda { get; set; }
     public DbSet<Iletisim> Iletisims { get; set; }
     public DbSet<Yorumlar> Yorumlars { get; set; }
+    public DbSet<BlogResim> BlogResims { get; set; }
 }

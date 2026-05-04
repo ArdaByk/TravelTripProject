@@ -1,0 +1,20 @@
+@{
+    ViewBag.Title = "Blog Resim Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Blog Görsellerini Yükle (2. Aşama)</h2>
+<br />
+<div class="alert alert-info">
+    Blog yazınız başarıyla kaydedildi! Şimdi bu bloğa ait resimleri yükleyebilirsiniz. Seçtiğiniz ilk resim ana kapak fotoğrafı olacaktır.
+</div>
+
+<form method="post" action="/Admin/BlogResimEkle/@ViewBag.BlogId" enctype="multipart/form-data">
+    <div class="form-group">
+        <label>Resim Seçiniz (Birden fazla seçebilirsiniz)</label>
+        <input type="file" name="images" class="form-control" multiple accept="image/*" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-success">Yükle ve Tamamla</button>
+    <a href="/Admin/Index" class="btn btn-default">Resim Yüklemeden Geç</a>
+</form>
