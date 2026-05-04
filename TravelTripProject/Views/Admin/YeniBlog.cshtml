@@ -1,4 +1,4 @@
-﻿@model TravelTripProject.Models.Siniflar.Blog
+@model TravelTripProject.Models.Siniflar.Blog
 @{
 	ViewBag.Title = "Yeni Blog";
 	Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -18,6 +18,12 @@
 	<br />
 	@Html.LabelFor(x => x.Aciklama)
 	@Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control" })
+	<br />
+	@Html.LabelFor(x => x.BlogDurum)
+	<select name="BlogDurum" class="form-control">
+		<option value="1">Yayınlandı</option>
+		<option value="0">Yayınlanmadı</option>
+	</select>
 	<br />
 	<button class="btn btn-primary">Blog Ekle</button>
 </form>

@@ -14,6 +14,14 @@ builder.Services.AddDbContext<Context>(options =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddAuthentication("CookieAuth")
+    .AddCookie("CookieAuth", options =>
+    {
+        options.LoginPath = "/GirisYap/Login";
+    });
+
+builder.Services.AddAuthorization();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -39,8 +47,19 @@ if (Directory.Exists(web2Folder))
     });
 }
 
+var webloginFolder = Path.Combine(Directory.GetCurrentDirectory(), "weblogin");
+if (Directory.Exists(webloginFolder))
+{
+    app.UseStaticFiles(new StaticFileOptions
+    {
+        FileProvider = new PhysicalFileProvider(webloginFolder),
+        RequestPath = "/weblogin"
+    });
+}
+
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

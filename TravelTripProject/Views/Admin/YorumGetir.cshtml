@@ -1,4 +1,4 @@
-﻿@model TravelTripProject.Models.Siniflar.Yorumlar;
+@model TravelTripProject.Models.Siniflar.Yorumlar;
 
 @{
 	ViewBag.Title = "Yorum Getir";
@@ -28,6 +28,22 @@
     @Html.LabelFor(x => x.Yorum)
     @Html.TextAreaFor(x => x.Yorum, 15, 1, new { @class = "form-control" })
     @Html.ValidationMessageFor(x => x.Yorum)
+    <br />
+
+    @Html.LabelFor(x => x.Okundu)
+    @Html.DropDownListFor(x => x.Okundu, new List<SelectListItem>
+    {
+        new SelectListItem { Text = "Okundu", Value = "true" },
+        new SelectListItem { Text = "Okunmadı", Value = "false" }
+    }, new { @class = "form-control" })
+    <br />
+
+    @Html.LabelFor(x => x.Yayinlandi)
+    @Html.DropDownListFor(x => x.Yayinlandi, new List<SelectListItem>
+    {
+        new SelectListItem { Text = "Yayınlandı", Value = "true" },
+        new SelectListItem { Text = "Yayınlanmadı", Value = "false" }
+    }, new { @class = "form-control" })
     <br />
 
     <button type="submit" class="btn btn-primary">Yorum Güncelle</button>

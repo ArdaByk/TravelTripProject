@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using TravelTripProject.Models.Siniflar;
 
 namespace TravelTripProject.Controllers;
@@ -10,8 +10,8 @@ public class BlogController : Controller
     public IActionResult Index()
     {
         //var blogs = c.Blogs.ToList();
-        by.Deger1 = c.Blogs.ToList();
-        by.Deger3 = c.Blogs.Take(3).ToList();
+        by.Deger1 = c.Blogs.Where(b => b.BlogDurum == 1).ToList();
+        by.Deger3 = c.Blogs.Where(b => b.BlogDurum == 1).Take(3).ToList();
         return View(by);
     }
     
@@ -19,8 +19,8 @@ public class BlogController : Controller
     {
 
         //var blogBul = c.Blogs.Where(x => x.ID == id).ToList();
-        by.Deger1 = c.Blogs.Where(x => x.ID == id).ToList();
-        by.Deger2 = c.Yorumlars.Where(x => x.BlogID == id).ToList();
+        by.Deger1 = c.Blogs.Where(x => x.ID == id && x.BlogDurum == 1).ToList();
+        by.Deger2 = c.Yorumlars.Where(x => x.BlogID == id && x.Yayinlandi == true).ToList();
         ViewBag.deger = id;
         return View(by);
     }

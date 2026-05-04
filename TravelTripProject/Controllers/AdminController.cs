@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TravelTripProject.Models.Siniflar;
@@ -7,7 +7,7 @@ namespace TravelTripProject.Controllers
     public class AdminController : Controller
     {
         Context c = new Context();
-        //[Authorize]
+        [Authorize]
         public IActionResult Index()
         {
             var degerler = c.Blogs.ToList();
@@ -45,6 +45,7 @@ namespace TravelTripProject.Controllers
             b.Baslik = p.Baslik;
             b.BlogImage = p.BlogImage;
             b.Tarih = p.Tarih;
+            b.BlogDurum = p.BlogDurum;
             c.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -74,6 +75,8 @@ namespace TravelTripProject.Controllers
             b.KullaniciAdi = p.KullaniciAdi;
             b.Mail = p.Mail;
             b.Yorum = p.Yorum;
+            b.Okundu = p.Okundu;
+            b.Yayinlandi = p.Yayinlandi;
             c.SaveChanges();
             return RedirectToAction("YorumListesi");
         }

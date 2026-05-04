@@ -1,4 +1,4 @@
-﻿@using TravelTripProject.Models.Siniflar;
+@using TravelTripProject.Models.Siniflar;
 @model List<Blog>
 
 
@@ -105,12 +105,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       		<h3>Tatil Seyahat Bloğuma Hoşgeldiniz!</h3>
       		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facil</p>
       	</div>
-                <partial name="Partial1" model="Model" />
+                <partial name="Partial1" model="ViewBag.Partial1" />
       
       		<div class="grids">
       	<div class="box1">
-                        <partial name="Partial3" />
-                        <partial name = "Partial4" />
+                        <partial name="Partial3" model="ViewBag.Partial3" />
+                        <partial name="Partial4" model="ViewBag.Partial4" />
                         <div class="clear"></div>      
       	</div
      </div>

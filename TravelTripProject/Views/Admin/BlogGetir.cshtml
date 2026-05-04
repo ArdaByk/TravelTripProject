@@ -1,4 +1,4 @@
-﻿@model TravelTripProject.Models.Siniflar.Blog
+@model TravelTripProject.Models.Siniflar.Blog
 
 @{
 	ViewBag.Title = "BlogGetir";
@@ -34,6 +34,14 @@
     @Html.LabelFor(x => x.Aciklama)
     @Html.TextAreaFor(x => x.Aciklama, 15, 1, new { @class = "form-control" })
     @Html.ValidationMessageFor(x => x.Aciklama)
+    <br />
+
+    @Html.LabelFor(x => x.BlogDurum)
+    @Html.DropDownListFor(x => x.BlogDurum, new List<SelectListItem>
+    {
+        new SelectListItem { Text = "Yayınlandı", Value = "1" },
+        new SelectListItem { Text = "Yayınlanmadı", Value = "0" }
+    }, new { @class = "form-control" })
     <br />
 
     <button type="submit" class="btn btn-primary">Güncelle</button>

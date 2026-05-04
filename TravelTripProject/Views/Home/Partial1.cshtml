@@ -1,4 +1,4 @@
-﻿@using TravelTripProject.Models.Siniflar
+@using TravelTripProject.Models.Siniflar
 @model List<Blog>
 <div class="con-bot">
     @foreach (var x in Model)
@@ -19,7 +19,7 @@
             </div>
         </div>
     }
-    <partial name="Partial2" model="Model" />
+    <partial name="Partial2" model="ViewBag.Partial2" />
     <div class="clear"></div>
 </div>
 

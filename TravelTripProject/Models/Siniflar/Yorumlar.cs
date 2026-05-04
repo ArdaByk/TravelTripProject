@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,4 +12,6 @@ public class Yorumlar
     public string Yorum { get; set; }
     public int BlogID { get; set; }
     public virtual Blog Blog { get; set; }
+    public bool Okundu { get; set; }
+    public bool Yayinlandi { get; set; }
 }
